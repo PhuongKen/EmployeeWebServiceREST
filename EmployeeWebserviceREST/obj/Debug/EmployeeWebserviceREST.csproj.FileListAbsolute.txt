@@ -4,4 +4,3 @@ E:\Sem 3\EmployeeWebServiceREST\EmployeeWebserviceREST\bin\EmployeeWebserviceRES
 E:\Sem 3\EmployeeWebServiceREST\EmployeeWebserviceREST\obj\Debug\EmployeeWebserviceREST.csproj.CoreCompileInputs.cache
 E:\Sem 3\EmployeeWebServiceREST\EmployeeWebserviceREST\obj\Debug\EmployeeWebserviceREST.dll
 E:\Sem 3\EmployeeWebServiceREST\EmployeeWebserviceREST\obj\Debug\EmployeeWebserviceREST.pdb
-E:\Sem 3\EmployeeWebServiceREST\EmployeeWebserviceREST\obj\Debug\EmployeeWebserviceREST.csprojAssemblyReference.cache

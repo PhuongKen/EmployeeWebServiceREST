@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using WCFConsumer.EmployeeClient;
+using WCFConsumer.ServiceReference1;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -24,26 +24,23 @@ namespace WCFConsumer
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        EmployeeClient.Employee webService = new EmployeeClient.Employee();
-
+        EmployeeClient webService = new EmployeeClient();
         public MainPage()
         {
             this.InitializeComponent();
             this.Loaded += MainPage_Loaded;
         }
-
-        void MainPage_Loaded(Object sender, RoutedEventArgs e)
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             getEmployee();
         }
-
         async void getEmployee()
         {
             try
             {
                 ProgressBar.IsIndeterminate = true;
                 ProgressBar.Visibility = Visibility.Visible;
-                GridViewEmployee.ItemsSource = Visibility.Collapsed;
+                GridViewEmployee.ItemsSource = await webService.GetProductListAsync();
                 ProgressBar.Visibility = Visibility.Collapsed;
                 ProgressBar.IsIndeterminate = false;
             }
@@ -55,7 +52,6 @@ namespace WCFConsumer
                 ProgressBar.IsIndeterminate = false;
             }
         }
-
         private async void GridViewEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -77,7 +73,6 @@ namespace WCFConsumer
                 ProgressBar.IsIndeterminate = false;
             }
         }
-
         private async void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -94,27 +89,25 @@ namespace WCFConsumer
                 ProgressBar.IsIndeterminate = false;
                 if (result == true)
                 {
-                    MessageDialog messageDialog = new MessageDialog("Inserted successfully");
+                    MessageDialog messageDialog = new MessageDialog("Inserted successfully!");
                     await messageDialog.ShowAsync();
                     Reset();
                 }
                 else
                 {
-                    MessageDialog messageDialog = new MessageDialog("Can't Inserts");
+                    MessageDialog messageDialog = new MessageDialog("Can't Insert!");
                     await messageDialog.ShowAsync();
                 }
                 getEmployee();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageDialog messageDialog = new MessageDialog(ex.Message);
                 await messageDialog.ShowAsync();
                 ProgressBar.Visibility = Visibility.Collapsed;
                 ProgressBar.IsIndeterminate = false;
             }
-
         }
-
         private async void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             if (GridViewEmployee.SelectedItem != null)
@@ -123,18 +116,16 @@ namespace WCFConsumer
                 {
                     ProgressBar.IsIndeterminate = true;
                     ProgressBar.Visibility = Visibility.Visible;
-
-                    bool result =
-                        await webService.DeleteEmployeeAsync((GridViewEmployee.SelectedItem as Employee).emID);
-                    if(result == true)
+                    bool result = await webService.DeleteEmployeeAsync((GridViewEmployee.SelectedItem as Employee).empID);
+                    if (result == true)
                     {
-                        MessageDialog messageDialog = new MessageDialog("Deleted successfully!");
+                        MessageDialog messageDialog = new MessageDialog("Delete successfully!");
                         await messageDialog.ShowAsync();
                         Reset();
                     }
                     else
                     {
-                        MessageDialog messageDialog = new MessageDialog("Can't delete.");
+                        MessageDialog messageDialog = new MessageDialog("Can't delete!");
                         await messageDialog.ShowAsync();
                     }
                     getEmployee();
@@ -149,11 +140,10 @@ namespace WCFConsumer
             }
             else
             {
-                MessageDialog messageDialog = new MessageDialog("Choise recored to delete!");
+                MessageDialog messageDialog = new MessageDialog("Choise record to delete!");
                 await messageDialog.ShowAsync();
             }
         }
-
         void Reset()
         {
             TextBoxName.Text = string.Empty;
@@ -161,7 +151,6 @@ namespace WCFConsumer
             TextBoxCity.Text = string.Empty;
             TextBoxAge.Text = string.Empty;
         }
-
         private async void ButtonModify_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -180,7 +169,7 @@ namespace WCFConsumer
                 ProgressBar.IsIndeterminate = false;
                 if (result == true)
                 {
-                    MessageDialog messageDialog = new MessageDialog("Edited successfully");
+                    MessageDialog messageDialog = new MessageDialog("Edited successfully!");
                     await messageDialog.ShowAsync();
                     Reset();
                 }
@@ -193,7 +182,7 @@ namespace WCFConsumer
             }
             catch
             {
-                MessageDialog messageDialog = new MessageDialog("Choice Employee.");
+                MessageDialog messageDialog = new MessageDialog("Choise Employee!");
                 await messageDialog.ShowAsync();
                 ProgressBar.Visibility = Visibility.Collapsed;
                 ProgressBar.IsIndeterminate = false;

@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="d3be13be-4e8c-45b1-9d92-08cc73d554c3"
+    Name="44a73efe-9bed-478f-8a50-8a011ae49651"
     Publisher="CN=Phuong Ken"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="d3be13be-4e8c-45b1-9d92-08cc73d554c3" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="44a73efe-9bed-478f-8a50-8a011ae49651" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>WCFConsumer</DisplayName>

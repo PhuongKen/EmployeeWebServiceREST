@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{8632469A-D9D0-4912-8360-DF9C8F70E42E}</ProjectGuid>
+    <ProjectGuid>{883368AF-3DE3-4919-8A8B-0A46B7B9E62C}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WCFConsumer</RootNamespace>
@@ -119,7 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\EmployeeClient\Reference.cs">
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -133,26 +133,26 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Connected Services\EmployeeClient\EmployeeNew.xsd">
+    <None Include="Connected Services\ServiceReference1\EmployeeNew.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\EmployeeClient\EmployeeNew1.xsd">
+    <None Include="Connected Services\ServiceReference1\EmployeeNew1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\EmployeeClient\EmployeeNew2.xsd">
+    <None Include="Connected Services\ServiceReference1\EmployeeNew2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\EmployeeClient\Service1.wsdl" />
-    <None Include="Connected Services\EmployeeClient\WCFConsumer.EmployeeClient.Employee.datasource">
+    <None Include="Connected Services\ServiceReference1\Service1.wsdl" />
+    <None Include="Connected Services\ServiceReference1\WCFConsumer.ServiceReference1.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
     <None Include="WCFConsumer_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\EmployeeClient\configuration91.svcinfo" />
-    <None Include="Connected Services\EmployeeClient\configuration.svcinfo" />
-    <None Include="Connected Services\EmployeeClient\Reference.svcmap">
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -184,7 +184,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\EmployeeClient\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
